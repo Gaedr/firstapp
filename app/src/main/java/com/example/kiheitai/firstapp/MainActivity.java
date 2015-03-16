@@ -18,11 +18,11 @@ public class MainActivity extends ListActivity {
         ArrayList<Cat> catList = new ArrayList<>();
 
         catList.add(new Cat(BitmapFactory.decodeResource(this.getResources(), R.drawable.c1), "Cat Eyes", "This cat hangs around our office and is not camera shy like the other ones."));
-        catList.add(new Cat(BitmapFactory.decodeResource(this.getResources(), R.drawable.c2), "Cat", "This cat hangs around our office and is not camera shy like the other ones."));
-        catList.add(new Cat(BitmapFactory.decodeResource(this.getResources(), R.drawable.c3), "Norwegian Cat", "This cat hangs around our office and is not camera shy like the other ones."));
-        catList.add(new Cat(BitmapFactory.decodeResource(this.getResources(), R.drawable.c4), "The Cat: If Looks could kill", "This cat hangs around our office and is not camera shy like the other ones."));
-        catList.add(new Cat(BitmapFactory.decodeResource(this.getResources(), R.drawable.c1), "Our cat", "This cat hangs around our office and is not camera shy like the other ones."));
-        catList.add(new Cat(BitmapFactory.decodeResource(this.getResources(), R.drawable.c2), "Kitty Cat", "This cat hangs around our office and is not camera shy like the other ones."));
+        catList.add(new Cat(BitmapFactory.decodeResource(this.getResources(), R.drawable.c2), "Cat", "Cat Turkish Angora cat of my friend looking at the sunset"));
+        catList.add(new Cat(BitmapFactory.decodeResource(this.getResources(), R.drawable.c3), "Norwegian Cat", "Norwegian cat of my friend....it's such big and it has such lovely eyes!"));
+        catList.add(new Cat(BitmapFactory.decodeResource(this.getResources(), R.drawable.c4), "The Cat: If Looks could kill", "The Cat: If Looks could kill"));
+        catList.add(new Cat(BitmapFactory.decodeResource(this.getResources(), R.drawable.c1), "Our cat", "Oh no the cat has turned into an alien :-) I did warn you no more photos hahahahaha"));
+        catList.add(new Cat(BitmapFactory.decodeResource(this.getResources(), R.drawable.c2), "Kitty Cat", "This is our familiar cat Boo she is not very impressed"));
 
         adapter = new Adaptador(this,catList);
         setListAdapter(adapter);
