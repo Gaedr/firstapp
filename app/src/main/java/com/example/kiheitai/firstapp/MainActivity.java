@@ -22,20 +22,14 @@ public class MainActivity extends ListActivity {
         setContentView(R.layout.activity_main);
         ArrayList<Cat> catList = new ArrayList<>();
 
-        Bitmap src = BitmapFactory.decodeResource(getResources(), R.drawable.c1);
-        RoundedBitmapDrawable dr = RoundedBitmapDrawableFactory.create(getResources(), src);
-        dr.setCornerRadius(Math.min(dr.getMinimumWidth(),dr.getMinimumHeight()));
-
-
-
         catList.add(new Cat(R.drawable.c1, "Cat Eyes", "This cat hangs around our office and is not camera shy like the other ones."));
         catList.add(new Cat(R.drawable.c2, "Cat", "Cat Turkish Angora cat of my friend looking at the sunset"));
         catList.add(new Cat(R.drawable.c3, "Norwegian Cat", "Norwegian cat of my friend....it's such big and it has such lovely eyes!"));
-        catList.add(new Cat(R.drawable.c4, "The Cat: If Looks could kill", "The Cat: If Looks could kill"));
-        catList.add(new Cat(R.drawable.c1, "Our cat", "Oh no the cat has turned into an alien :-) I did warn you no more photos hahahahaha"));
-        catList.add(new Cat(R.drawable.c2, "Kitty Cat", "This is our familiar cat Boo she is not very impressed"));
+        catList.add(new Cat(R.drawable.c1, "The Cat: If Looks could kill", "The Cat: If Looks could kill"));
+        catList.add(new Cat(R.drawable.c2, "Our cat", "Oh no the cat has turned into an alien :-) I did warn you no more photos hahahahaha"));
+        catList.add(new Cat(R.drawable.c3, "Kitty Cat", "This is our familiar cat Boo she is not very impressed"));
 
-        adapter = new Adaptador(this,catList);
+        adapter = new Adaptador(this,R.layout.list_element, catList);
         setListAdapter(adapter);
     }
 }

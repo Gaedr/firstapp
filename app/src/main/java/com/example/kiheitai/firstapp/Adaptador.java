@@ -2,40 +2,35 @@ package com.example.kiheitai.firstapp;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
-import android.graphics.Rect;
-import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.pkmmte.view.CircularImageView;
-
 import java.util.ArrayList;
+import java.util.HashMap;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by kiheitai on 15/03/13.
  */
-public class Adaptador extends BaseAdapter {
+public class Adaptador extends ArrayAdapter<Cat> {
     private LayoutInflater inflador;
     TextView titulo, subtitulo;
     ImageView icono;
     ArrayList<Cat> catList;
+    Context ctx;
 
-    public Adaptador(Context contexto, ArrayList<Cat> cats){
-        inflador = (LayoutInflater) contexto.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    public Adaptador(Context contexto, int resource, ArrayList<Cat> cats){
+        super(contexto, resource, cats);
+        //inflador = (LayoutInflater) contexto.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         catList = cats;
+        ctx = contexto;
     }
 
     @Override
@@ -55,21 +50,44 @@ public class Adaptador extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        ViewHolder holder;
+
         Cat cat = catList.get(position);
+
         if (convertView == null){
+            inflador = ((Activity)ctx).getLayoutInflater();
             convertView = inflador.inflate(R.layout.list_element, null);
+
+            holder = new ViewHolder();
+            holder.image = (ImageView) convertView.findViewById(R.id.icono);
+            holder.titulo = (TextView) convertView.findViewById(R.id.titulo);
+            holder.subtitulo = (TextView) convertView.findViewById(R.id.subtitulo);
+            convertView.setTag(holder);
+        }else{
+            holder = (ViewHolder) convertView.getTag();
         }
 
-        titulo = (TextView) convertView.findViewById(R.id.titulo);
-        subtitulo = (TextView) convertView.findViewById(R.id.subtitulo);
-        icono = (CircularImageView) convertView.findViewById(R.id.icono);
+        if(cat != null){
+            holder.titulo.setText(cat.getTitulo());
+            holder.subtitulo.setText(cat.getSubtitulo());
+            //holder.image.setImageResource(cat.getIdImage());
+            if(!Cache.map.containsKey(cat.getIdImage())){
+                Cache.map.put(cat.getIdImage(), ctx.getResources().getDrawable(cat.getIdImage()));
+            }
+            holder.image.setImageDrawable(Cache.map.get(cat.getIdImage()));
+        }
 
-        titulo.setText(cat.getTitulo());
-        subtitulo.setText(cat.getSubtitulo());
-        icono.setImageResource(cat.getIdImage());
-        icono.setPadding(16,16,0,0);
 
-        icono.setScaleType(ImageView.ScaleType.FIT_START);
         return convertView;
+    }
+
+    class ViewHolder{
+        TextView titulo;
+        TextView subtitulo;
+        ImageView image;
+    }
+
+    static class Cache{
+        static HashMap<Integer,Drawable> map = new HashMap<>();
     }
 }
