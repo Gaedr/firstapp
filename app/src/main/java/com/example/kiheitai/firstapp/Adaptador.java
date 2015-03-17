@@ -20,6 +20,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.pkmmte.view.CircularImageView;
+
 import java.util.ArrayList;
 
 /**
@@ -60,11 +62,12 @@ public class Adaptador extends BaseAdapter {
 
         titulo = (TextView) convertView.findViewById(R.id.titulo);
         subtitulo = (TextView) convertView.findViewById(R.id.subtitulo);
-        icono = (ImageView) convertView.findViewById(R.id.icono);
+        icono = (CircularImageView) convertView.findViewById(R.id.icono);
 
         titulo.setText(cat.getTitulo());
         subtitulo.setText(cat.getSubtitulo());
-        icono.setImageBitmap(cat.getRoundedImage());
+        icono.setImageResource(cat.getIdImage());
+        icono.setPadding(16,16,0,0);
 
         icono.setScaleType(ImageView.ScaleType.FIT_START);
         return convertView;

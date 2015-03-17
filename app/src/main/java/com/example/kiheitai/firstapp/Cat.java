@@ -1,6 +1,7 @@
 package com.example.kiheitai.firstapp;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -8,27 +9,32 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.graphics.drawable.Drawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 
 /**
  * Created by kiheitai on 15/03/13.
  */
 public class Cat {
-    private Bitmap idImage;
-    private Bitmap roundedImage;
+    private int idImage;
+    //private Bitmap roundedImage;
     private String titulo, subtitulo;
 
-    public Cat(Bitmap idImage, String titulo, String subtitulo){
+    public Cat(int idImage, String titulo, String subtitulo){
         this.idImage = idImage;
-        this.roundedImage = getRoundedBitmap(idImage);
+        /*RoundedAvatarDrawable rad = new RoundedAvatarDrawable(idImage);
+        this.roundedImage = rad.getBitmap();*/
+
         this.titulo = titulo;
         this.subtitulo = subtitulo;
     }
 
-    public Bitmap getIdImage() {
+    public int getIdImage() {
         return idImage;
     }
 
-    public Bitmap getRoundedImage(){ return  roundedImage;}
+    //public Bitmap getRoundedImage(){ return  roundedImage;}
 
     public String getTitulo() {
         return titulo;
@@ -38,7 +44,7 @@ public class Cat {
         return subtitulo;
     }
 
-    public static Bitmap getRoundedBitmap(Bitmap bitmap) {
+    /*public static Bitmap getRoundedBitmap(Bitmap bitmap) {
         final Bitmap output = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
         final Canvas canvas = new Canvas(output);
 
@@ -59,5 +65,5 @@ public class Cat {
         bitmap.recycle();
 
         return output;
-    }
+    }*/
 }

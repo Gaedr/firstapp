@@ -1,40 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent" android:layout_height="88dp"
+
+    android:layout_width="fill_parent"
+    android:layout_height="88dp"
+    android:minHeight="88dp"
     android:paddingRight="16dp"
-    android:paddingBottom="8dp" android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:paddingTop="8dp"
     android:backgroundTint="#E0E0E0">
 
     <TextView android:id="@+id/titulo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingLeft="72dp"
+        android:paddingStart="104dp"
         android:fontFamily="Roboto Regular"
-        android:textSize="16sp"
+        android:textSize="17sp"
         android:paddingTop="16dp"
         android:textColor="#212121"
         android:singleLine="true"
+        android:textStyle="bold"
     />
 
     <TextView android:id="@+id/subtitulo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingLeft="72dp"
+        android:paddingStart="104dp"
         android:layout_below="@id/titulo"
         android:textSize="14sp"
         android:paddingBottom="20dp"
         android:fontFamily="Roboto Regular"
         android:maxLines="2"
+
+
     />
 
-    <ImageView android:id="@+id/icono"
-        android:layout_width="wrap_content"
-        android:maxWidth="56dp"
-        android:layout_height="56dp"
+    <com.pkmmte.view.CircularImageView
+        android:id="@+id/icono"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
         android:contentDescription="Photo cat"
-        android:paddingLeft="16dp"
-        android:paddingTop="16dp"
-        />
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_centerVertical="true"
+
+    />
 
 
 </RelativeLayout>
