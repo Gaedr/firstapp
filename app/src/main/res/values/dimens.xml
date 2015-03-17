@@ -15,4 +15,7 @@
     <dimen name="text_paddingTop">16dp</dimen>
     <dimen name="text_paddingBottom">20dp</dimen>
     <dimen name="text_paddingStart">104dp</dimen>
+
+    <dimen name="font_titleSize">17dp</dimen>
+    <dimen name="font_baseSize">14dp</dimen>
 </resources>

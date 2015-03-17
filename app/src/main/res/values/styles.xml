@@ -17,8 +17,7 @@
     <color name="element_backgroundTint">#E0E0E0</color>
     <color name="element_titleColor">#212121</color>
 
-    <string name="fontBase">Roboto Regular</string>
-    <dimen name="font_titleSize">17dp</dimen>
-    <dimen name="font_baseSize">14dp</dimen>
+
+
 
 </resources>
