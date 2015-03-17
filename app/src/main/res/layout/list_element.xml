@@ -2,21 +2,21 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
     android:layout_width="fill_parent"
-    android:layout_height="88dp"
-    android:minHeight="88dp"
-    android:paddingRight="16dp"
-    android:paddingBottom="8dp"
-    android:paddingTop="8dp"
-    android:backgroundTint="#E0E0E0">
+    android:layout_height="@dimen/element_heightSize"
+    android:minHeight="@dimen/element_heightSize"
+    android:paddingRight="@dimen/element_paddingRight"
+    android:paddingBottom="@dimen/element_paddingBottom"
+    android:paddingTop="@dimen/element_paddingTop"
+    android:backgroundTint="@color/element_backgroundTint">
 
     <TextView android:id="@+id/titulo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingStart="104dp"
-        android:fontFamily="Roboto Regular"
-        android:textSize="17sp"
-        android:paddingTop="16dp"
-        android:textColor="#212121"
+        android:paddingStart="@dimen/text_paddingStart"
+        android:fontFamily="@string/fontBase"
+        android:textSize="@dimen/font_titleSize"
+        android:paddingTop="@dimen/text_paddingTop"
+        android:textColor="@color/element_titleColor"
         android:singleLine="true"
         android:textStyle="bold"
     />
@@ -24,24 +24,22 @@
     <TextView android:id="@+id/subtitulo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingStart="104dp"
+        android:paddingStart="@dimen/text_paddingStart"
         android:layout_below="@id/titulo"
-        android:textSize="14sp"
-        android:paddingBottom="20dp"
-        android:fontFamily="Roboto Regular"
+        android:textSize="@dimen/font_baseSize"
+        android:paddingBottom="@dimen/text_paddingBottom"
+        android:fontFamily="@string/fontBase"
         android:maxLines="2"
-
-
     />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/icono"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        android:contentDescription="Photo cat"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="@dimen/avatarSize"
+        android:layout_height="@dimen/avatarSize"
+        android:contentDescription="@id/titulo"
+        android:layout_marginStart="@dimen/avatar_marginStartSize"
+        android:layout_marginTop="@dimen/avatar_marginSize"
+        android:layout_marginBottom="@dimen/avatar_marginSize"
         android:layout_centerVertical="true"
     />
 
